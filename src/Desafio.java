@@ -17,7 +17,7 @@ public class Desafio {
     System.out.println("\n**************************************");
 
     String menu = """
-      ** Digite sua opção **
+      ** Digite sua opção **\n
       1- Consultar saldos
       2- Transferir valor
       3- Receber valor
@@ -31,6 +31,7 @@ public class Desafio {
 
       if (opcao == 1) {
         System.out.println("O saldo atualizado é R$" + saldo);
+        System.out.println("");
       } else if (opcao == 2) {
         System.out.println("Qual o valor que deseja transferir");
         double valor = leitura.nextDouble();
@@ -39,14 +40,18 @@ public class Desafio {
         } else {
           saldo -= valor;
           System.out.println("Novo saldo: R$" + saldo);
+          System.out.println("");
         }
         } else if (opcao == 3) {
+          System.out.println("");
           System.out.println("Valor recebido: ");
           double valor = leitura.nextDouble();
           saldo += valor;
           System.out.println("Novo saldo: R$" + saldo);
+          System.out.println("");
         } else if (opcao != 4) {
-        System.out.println("Opção inválida");
+          System.out.println("Opção inválida");
+          System.out.println("");
       }
     }
   }
