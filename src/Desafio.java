@@ -5,7 +5,8 @@ public class Desafio {
     String nome = "Gabriel Bueno";
     String tipoDeConta = "Corrente";
     double saldo = 1599.99;
-    int escolha = 0;
+    int opcao = 0;
+
     Scanner leitura = new Scanner(System.in);
 
     System.out.println("**************************************");
@@ -15,21 +16,38 @@ public class Desafio {
     System.out.println("Saldo inicial: " + saldo);
     System.out.println("\n**************************************");
 
-    System.out.println("""
-      
-      """);
-    System.out.println("Operações");
-    System.out.println("");
+    String menu = """
+      ** Digite sua opção **
+      1- Consultar saldos
+      2- Transferir valor
+      3- Receber valor
+      4- Sair
+      """;
+    System.out.println("Operações\n");
 
-    System.out.println("1- Consultar saldos");
-    System.out.println("2- Receber valor");
-    System.out.println("3- Transferir valor");
-    System.out.println("4- Sair");
+    while (opcao != 4) {
+      System.out.println(menu);
+      opcao = leitura.nextInt();
 
-    System.out.println("");
-
-    System.out.println("Digite a opção desejada:");
-    escolha = leitura.nextInt();
-
+      if (opcao == 1) {
+        System.out.println("O saldo atualizado é R$" + saldo);
+      } else if (opcao == 2) {
+        System.out.println("Qual o valor que deseja transferir");
+        double valor = leitura.nextDouble();
+        if (valor > saldo) {
+          System.out.println("Não há saldo para realizar a transferência");
+        } else {
+          saldo -= valor;
+          System.out.println("Novo saldo: R$" + saldo);
+        }
+        } else if (opcao == 3) {
+          System.out.println("Valor recebido: ");
+          double valor = leitura.nextDouble();
+          saldo += valor;
+          System.out.println("Novo saldo: R$" + saldo);
+        } else if (opcao != 4) {
+        System.out.println("Opção inválida");
+      }
+    }
   }
 }
